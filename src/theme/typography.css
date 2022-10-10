@@ -1,0 +1,35 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+input {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+}
+
+.Text--Center {
+  text-align: center;
+}
+
+.Heading--Large {
+  font-size: 2.5rem;
+  color: #ffffff;
+  line-height: 2.813rem;
+  margin-bottom: 40px;
+}
+
+.Heading--Medium {
+  font-size: 1.2rem;
+  color: #ffffff;
+  line-height: 1.4rem;
+  margin-bottom: 40px;
+}
+
+.Paragraph {
+  font-size: 1rem;
+  color: #ffffff;
+  line-height: 1.25rem;
+}

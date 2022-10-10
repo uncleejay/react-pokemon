@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.Container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #111111;
+  display: flex;
+  justify-content: center;
+}
+
+.ContainerContent {
+  width: 100%;
+  max-width: 1200px;
+  padding-top: 40px;
+}
+
+.ButtonContainer {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.ListContainer {
+  width: 100%;
+  margin: 40px 0px;
+}
+
+.List__Card {
+  width: 100%;
+  height: 100px;
+  background-color: #57925e;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.List__Card:hover {
+  opacity: 0.9;
+}
+
+.List__Heading {
+  font-size: 1.2rem;
+  color: #ffffff;
+  line-height: 1.4rem;
+}
+
+.Row--Center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Row--Col2 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}

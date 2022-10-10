@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Suspense } from "react";
+import Error from "./components/Error/Error";
+import Loading from "./components/Loading/Loading";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Welcome from "./pages/Welcome/Welcome";
+import { PokemonProvider } from "./context/pokemon.context";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    noInternetConnection: false
+  };
+  componentDidMount() {
+    this.handleInternetConnectionChange();
+    window.addEventListener("online", this.handleInternetConnectionChange);
+    window.addEventListener("offline", this.handleInternetConnectionChange);
+  }
+  handleInternetConnectionChange = () => {
+    navigator.onLine ? this.setState({ noInternetConnection: false }) : this.setState({ noInternetConnection: true });
+  };
+  render() {
+    const { noInternetConnection } = this.state;
+    if (noInternetConnection) {
+      return <Error text="No Internet Connnection" />;
+    }
+    return (
+      <PokemonProvider>
+        <Suspense fallback={<Loading />}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Welcome />} />
+            </Routes>
+          </BrowserRouter>
+        </Suspense>
+      </PokemonProvider>
+    );
+  }
 }
 
 export default App;
